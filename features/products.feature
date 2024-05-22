@@ -107,3 +107,12 @@ Scenario: Create a Product
     And I should see "Big Mac" in the results
     And I should see "Sheets" in the results
     And I should not see "Shoes" in the results
+
+    # features/products.feature showing the BDD Scenario for Searching a Product based on Name
+    Scenario: Search by name
+    When I visit the "Home Page"
+    And I set the "Name" to "Hat"
+    And I press the "Search" button
+    Then I should see the message "Success"
+    And I should see "Hat" in the "Name" field
+    And I should see "A red fedora" in the "Description" field
