@@ -181,7 +181,7 @@ class TestProductRoutes(TestCase):
         response = self.client.post(BASE_URL, json=test_product.serialize())
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    #
+    #  tests/test_routes.py showing the code snippet for DELETE test case
             def test_delete_product(self):
         """It should Delete a Product"""
         products = self._create_products(5)
@@ -195,6 +195,15 @@ class TestProductRoutes(TestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         new_count = self.get_product_count()
         self.assertEqual(new_count, product_count - 1)
+
+    #  tests/test_routes.py showing the code snippet for LIST ALL test case
+            def test_get_product_list(self):
+        """It should Get a list of Products"""
+        self._create_products(5)
+        response = self.client.get(BASE_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.get_json()
+        self.assertEqual(len(data), 5)
 
         # update the product
         new_product = response.get_json()
