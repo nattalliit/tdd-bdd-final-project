@@ -171,7 +171,7 @@ class TestProductModel(unittest.TestCase):
         for product in found:
             self.assertEqual(product.name, name)
 
-    # Test Case to Find a Product by Availability
+    # tests/test_models.py showing the code snippet for FIND BY AVAILABILITY test case
       def test_find_by_availability(self):
         """It should Find Products by Availability"""
         products = ProductFactory.create_batch(10)
